@@ -1,3 +1,3 @@
-# redux-fake-shop
+# fake-shop
 
 Created with CodeSandbox
