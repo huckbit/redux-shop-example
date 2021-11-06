@@ -3,7 +3,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Header from "./components/Header";
 import ProductListing from "./components/ProductListing";
-import Product from "./components/Product";
+import ProductDetails from "./components/ProductDetails";
 
 const App = () => {
   return (
@@ -12,7 +12,7 @@ const App = () => {
         <Header />
         <Switch>
           <Route exact path="/" component={ProductListing} />
-          <Route path="/product/:id" component={Product} />
+          <Route path="/product/:id" component={ProductDetails} />
           <Route>404 not found!</Route>
         </Switch>
       </Router>
