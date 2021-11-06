@@ -22,7 +22,7 @@ export const selectedProduct = (product) => {
 
 export const removeSelectedProduct = (product) => {
   return {
-    type: REMOVE_SELECTED_PRODUCT,
-    payload: product
+    type: REMOVE_SELECTED_PRODUCT
+    /* no payload here, resetting state initialState */
   };
 };

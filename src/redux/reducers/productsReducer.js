@@ -1,6 +1,10 @@
 /* Reducer to set products in the store */
 
-import { SET_PRODUCTS, ADD_SELECTED_PRODUCT } from "../types/product.types";
+import {
+  SET_PRODUCTS,
+  ADD_SELECTED_PRODUCT,
+  REMOVE_SELECTED_PRODUCT
+} from "../types/product.types";
 
 const initialState = {
   products: []
@@ -19,6 +23,8 @@ export const productReducer = (state = {}, { type, payload }) => {
   switch (type) {
     case ADD_SELECTED_PRODUCT:
       return { ...state, ...payload };
+    case REMOVE_SELECTED_PRODUCT:
+      return {};
     default:
       return state;
   }
