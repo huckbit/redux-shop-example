@@ -1,9 +1,17 @@
-const Product = ({ id, title, category }) => {
+const Product = ({ title, description, category, price, rating, image }) => {
   return (
-    <div style={{ display: "block", border: "2px solid lavanda" }}>
-      <h1>{title}</h1>
-      <p>Product id: {id}</p>
+    <div>
+      <div>
+        <img src={image} alt="" style={{ width: "100%", height: "auto" }} />
+      </div>
+      <h3>
+        {title} | {price}
+      </h3>
       <p>Category: {category}</p>
+      <p>{description}</p>
+      <p>
+        Rating: {rating.rate} of {rating.count}
+      </p>
     </div>
   );
 };

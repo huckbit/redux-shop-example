@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import { setProducts } from "../redux/actions/products.action";
+import Product from "../components/Product";
 
 const ProductListing = () => {
   const data = useSelector((state) => state); /* Getting data from the store */
@@ -22,8 +23,18 @@ const ProductListing = () => {
 
   return (
     <div>
-      <h1>Shop</h1>
-      {console.log(data.allProducts.products)}
+      <h1>Welcome to Fake Shop</h1>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(4, 1fr)",
+          gap: "1rem"
+        }}
+      >
+        {data.allProducts.products.map((product) => (
+          <Product key={product.id} {...product} />
+        ))}
+      </div>
     </div>
   );
 };

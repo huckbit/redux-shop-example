@@ -1,7 +1,7 @@
 const Header = () => {
   return (
     <div>
-      <p>Welcome to the Fake Shop</p>
+      <a href="/">Home</a>
     </div>
   );
 };
