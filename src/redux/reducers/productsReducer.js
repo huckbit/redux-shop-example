@@ -1,3 +1,5 @@
+/* Reducer to set products in the store */
+
 import { SET_PRODUCTS } from "../types/product.types";
 
 const initialState = {

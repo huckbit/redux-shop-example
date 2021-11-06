@@ -1,3 +1,5 @@
+/* Importing types for the actions */
+
 import {
   SET_PRODUCTS,
   ADD_SELECTED_PRODUCT,

@@ -4,18 +4,22 @@ import axios from "axios";
 import { setProducts } from "../redux/actions/products.action";
 
 const ProductListing = () => {
-  const data = useSelector((state) => state);
+  const data = useSelector((state) => state); /* Getting data from the store */
   const dispatch = useDispatch();
+
+  /* Fetching data from the API */
   useEffect(() => {
     (async () => {
       try {
         const resp = await axios.get("https://fakestoreapi.com/products");
+        /* Dispatching data to the store to save the state */
         dispatch(setProducts(resp.data));
       } catch (err) {
         console.log(err);
       }
     })();
   }, []);
+
   return (
     <div>
       <h1>Shop</h1>
