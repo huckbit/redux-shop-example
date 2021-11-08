@@ -4,7 +4,8 @@ import { fetchProducts } from "../redux/actions/products.action";
 import Product from "../components/Product";
 
 const ProductListing = () => {
-  const data = useSelector((state) => state); /* Getting data from the store */
+  /* Getting data from the store */
+  const data = useSelector((state) => state.products);
   const dispatch = useDispatch();
 
   /* Fetching data from the API */
@@ -15,7 +16,7 @@ const ProductListing = () => {
   return (
     <div>
       <h1>Welcome to Fake Shop</h1>
-      {data?.products?.products?.length > 0 ? (
+      {data?.products?.length > 0 ? (
         <div
           style={{
             display: "grid",
@@ -23,7 +24,7 @@ const ProductListing = () => {
             gap: "1rem"
           }}
         >
-          {data?.products?.products?.map((product) => (
+          {data?.products?.map((product) => (
             <Product key={product.id} {...product} />
           ))}
         </div>
