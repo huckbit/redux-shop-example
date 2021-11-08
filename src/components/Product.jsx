@@ -1,22 +1,15 @@
 import { Link } from "react-router-dom";
 
-const Product = ({
-  id,
-  title,
-  description,
-  category,
-  price,
-  rating,
-  image
-}) => {
+const Product = ({ id, title, price, image }) => {
   return (
     <Link to={`/products/${id}`}>
-      <div>
-        <img src={image} alt="" style={{ width: "100%", height: "auto" }} />
+      <div className="card">
+        <img src={image} className="card-img-top" alt="" widht="150" />
+        <div className="card-body">
+          <h5 className="card-title">{title}</h5>
+          <p className="card-text">{price}</p>
+        </div>
       </div>
-      <h3>
-        {title} | {price}
-      </h3>
     </Link>
   );
 };

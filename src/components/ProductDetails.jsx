@@ -30,29 +30,28 @@ const ProductDetails = () => {
         </div>
       ) : (
         <div style={{ margin: "2rem 15vw" }}>
-          <div style={{ display: "flex", alignItems: "center" }}>
-            <div style={{ height: "10rem", width: "10rem" }}>
-              <img
-                src={product.image}
-                style={{ width: "100%", height: "auto" }}
-                alt=""
-              />
-            </div>
-            <div style={{ margin: "auto 2rem" }}>
-              <h1>{product.title}</h1>
+          <div className="media">
+            <img src={product.image} className="mr-3" alt="" width="250" />
+            <div className="media-body">
+              <h1 className="mt-0">{product.title}</h1>
               <h3>category - {product.category}</h3>
               <h3>price is £{product.price}</h3>
-              <p>
-                <strong>{product?.rating?.rate}</strong> based on{" "}
-                <strong>{product?.rating?.count}</strong> reviews
-              </p>
             </div>
           </div>
-          <div style={{ display: "fles", marginTop: "2rem" }}>
+
+          <div style={{ display: "flex", marginTop: "2rem" }}>
             <p>{product.description}</p>
           </div>
           <div>
-            <Link to="/">Back to shop</Link>
+            <p>
+              <strong>{product?.rating?.rate}</strong> based on{" "}
+              <strong>{product?.rating?.count}</strong> reviews
+            </p>
+          </div>
+          <div>
+            <Link to="/">
+              <button className="btn btn-primary">Back to shop</button>
+            </Link>
           </div>
         </div>
       )}
