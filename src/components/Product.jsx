@@ -10,7 +10,7 @@ const Product = ({
   image
 }) => {
   return (
-    <Link to={`/product/${id}`}>
+    <Link to={`/products/${id}`}>
       <div>
         <img src={image} alt="" style={{ width: "100%", height: "auto" }} />
       </div>

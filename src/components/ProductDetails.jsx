@@ -2,32 +2,25 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import {
-  selectedProduct,
+  fetchSingleProduct,
   removeSelectedProduct
 } from "../redux/actions/products.action";
-import Product from "../components/Product";
 
 const ProductDetails = () => {
   const { id } = useParams();
   const product = useSelector((state) => state.product);
   const dispatch = useDispatch();
+
   useEffect(() => {
-    (async () => {
-      try {
-        const resp = await axios.get(`https://fakestoreapi.com/products/${id}`);
-        /* Dispatching data to the store to save the state */
-        dispatch(selectedProduct(resp.data));
-      } catch (err) {
-        console.log(err);
-      }
-    })();
+    dispatch(fetchSingleProduct(id));
     /* clean up  */
     return () => {
       dispatch(removeSelectedProduct());
     };
-  }, [id]);
+  }, []);
+
+  console.log("pippo", product);
 
   return (
     <>

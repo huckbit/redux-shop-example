@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import axios from "axios";
-import { setProducts } from "../redux/actions/products.action";
+import { fetchProducts } from "../redux/actions/products.action";
 import Product from "../components/Product";
 
 const ProductListing = () => {
@@ -10,20 +9,13 @@ const ProductListing = () => {
 
   /* Fetching data from the API */
   useEffect(() => {
-    (async () => {
-      try {
-        const resp = await axios.get("https://fakestoreapi.com/products");
-        /* Dispatching data to the store to save the state */
-        dispatch(setProducts(resp.data));
-      } catch (err) {
-        console.log(err);
-      }
-    })();
+    dispatch(fetchProducts());
   }, []);
+
   return (
     <div>
       <h1>Welcome to Fake Shop</h1>
-      {data.allProducts.products.length > 0 ? (
+      {data?.products?.products?.length > 0 ? (
         <div
           style={{
             display: "grid",
@@ -31,7 +23,7 @@ const ProductListing = () => {
             gap: "1rem"
           }}
         >
-          {data.allProducts.products.map((product) => (
+          {data?.products?.products?.map((product) => (
             <Product key={product.id} {...product} />
           ))}
         </div>
