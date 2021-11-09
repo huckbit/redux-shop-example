@@ -13,7 +13,7 @@ const App = () => {
         <Switch>
           <Route exact path='/' component={ProductListing} />
           <Route path='/products/:id' component={ProductDetails} />
-          <Route>:-( snap ... 404 not found!</Route>
+          <Route>404 not found!</Route>
         </Switch>
       </Router>
     </>
